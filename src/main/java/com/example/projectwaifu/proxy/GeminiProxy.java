@@ -14,7 +14,7 @@ public interface GeminiProxy {
     String API_KEY = "key";
 
     Map<String, Integer> maxOutputTokens = Map.of(
-            "maxOutputTokens", 60
+            "maxOutputTokens", 30
     );
 
     Map<String, String> geminiHeader = Map.of(

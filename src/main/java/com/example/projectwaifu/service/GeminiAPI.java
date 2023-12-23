@@ -1,5 +1,6 @@
 package com.example.projectwaifu.service;
 
+import com.example.projectwaifu.other.PremadeResponse;
 import com.example.projectwaifu.proxy.GeminiProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +12,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.List;
 
 @Component
 public class GeminiAPI {
@@ -22,12 +22,14 @@ public class GeminiAPI {
     @Autowired
     private GeminiProxy geminiProxy;
 
+    PremadeResponse premadeResponse = new PremadeResponse();
+
     public String getGeminiResponse(String input) {
         Map<String, Object> requestBody = new HashMap<>();
 
         Map<String, Object> partMap = new HashMap<>();
         Map<String, String> textMap = new HashMap<>();
-        textMap.put("text", input);
+        textMap.put("text", input+ ". Talk like an anime character");
         partMap.put("parts", textMap);
 
 
@@ -38,7 +40,7 @@ public class GeminiAPI {
 
         Map<String, Object> promptFeedback = (Map<String, Object>) response.get("promptFeedback");
         if (promptFeedback.get("blockReason") != null) {
-            return "EXPLICIT INPUT. PLEASE RETRY.";
+            return premadeResponse.explicitWarning();
         }
 
         try {
