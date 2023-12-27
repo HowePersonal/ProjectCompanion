@@ -18,8 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableWebSecurity(debug = true)
-@EnableMethodSecurity(securedEnabled = true)
+@EnableWebSecurity(debug = false)
 public class SecurityConfig {
     private static final String[] ENDPOINTS_WHITELIST = {
             "/login",
@@ -34,7 +33,6 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http    .csrf(AbstractHttpConfigurer::disable)
-                .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(ENDPOINTS_WHITELIST).permitAll()
                         .requestMatchers(ENDPOINTS_USERS).hasAuthority("DEFAULT")
