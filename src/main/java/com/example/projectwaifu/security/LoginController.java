@@ -2,6 +2,7 @@ package com.example.projectwaifu.security;
 
 import com.example.projectwaifu.security.User;
 import com.example.projectwaifu.security.UserRepository;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,17 @@ public class LoginController {
             context.setAuthentication(authentication);
             SecurityContextHolder.setContext(context);
             securityContextRepository.saveContext(context, httpServletRequest, httpServletResponse);
+            String sessionId = "No session";
+            Cookie[] cookies = httpServletRequest.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie: cookies) {
+                    if ("SESSION".equals(cookie.getName())) {
+                        sessionId = cookie.getValue();
+                    }
+                }
+            }
 
-            return "Login Success";
+            return sessionId;
         }
         catch (AuthenticationException e) {
             return "Login Failed";
