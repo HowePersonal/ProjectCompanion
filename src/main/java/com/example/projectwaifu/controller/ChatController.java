@@ -12,13 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:5173"}, allowedHeaders = "*", allowCredentials = "true")
 @RequestMapping("/api/chat")
 public class ChatController {
 
     @Autowired
     private GeminiAPI geminiAPI;
-
 
     @PostMapping("/AI")
     public String getAIResponse(
