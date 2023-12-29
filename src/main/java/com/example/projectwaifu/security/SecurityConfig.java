@@ -35,9 +35,11 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity(debug = false)
 public class SecurityConfig {
     private static final String[] ENDPOINTS_WHITELIST = {
-            "/login",
-            "/register",
-            "/authorities"
+            "/index.html",
+            "/",
+            "/assets/**",
+            "/vite.svg",
+            "/security/**",
     };
 
     private static final String[] ENDPOINTS_USERS = {
@@ -53,7 +55,7 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(ENDPOINTS_WHITELIST).permitAll()
-                        .requestMatchers(ENDPOINTS_USERS).permitAll()
+                        .requestMatchers(ENDPOINTS_USERS).hasAuthority("DEFAULT")
                         .anyRequest().authenticated()
                 );
 
@@ -83,5 +85,8 @@ public class SecurityConfig {
         return new HttpSessionSecurityContextRepository();
     }
 
-
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer() {
+//        return (web) -> web.ignoring().requestMatchers("/index.html", "/", "/assets/**", "/vite.svg");
+//    }
 }

@@ -12,9 +12,9 @@ import java.util.*;
 
 
 public class CustomUserDetails implements UserDetails, Serializable {
+
     private static final long serialVersionUID = -1090244616449358260L;
     private User user;
-
 
     public CustomUserDetails(User user) { this.user = user;}
 
