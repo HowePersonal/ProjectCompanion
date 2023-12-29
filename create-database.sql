@@ -4,3 +4,11 @@ CREATE TABLE IF NOT EXISTS users (
     username varchar(50) UNIQUE NOT NULL,
     password varchar(100) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS userchat (
+    id serial PRIMARY KEY,
+    user_id INT NOT NULL,
+    input varchar(300) NOT NULL,
+    response varchar(300) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);

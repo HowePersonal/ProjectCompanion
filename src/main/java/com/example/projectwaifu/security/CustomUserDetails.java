@@ -8,13 +8,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 
-public class CustomUserDetails implements UserDetails {
+public class CustomUserDetails implements UserDetails, Serializable {
+    private static final long serialVersionUID = -1090244616449358260L;
     private User user;
+
 
     public CustomUserDetails(User user) { this.user = user;}
 
@@ -30,6 +30,8 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {return this.user.getPassword();}
+
+    public Long getId() {return this.user.getId();}
 
     @Override
     public boolean isAccountNonExpired() {
