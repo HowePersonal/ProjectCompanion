@@ -47,14 +47,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http    .csrf(AbstractHttpConfigurer::disable)
-                .cors(withDefaults())
                 .securityContext((securityContext) -> securityContext
                         .requireExplicitSave(true)
                         .securityContextRepository(new HttpSessionSecurityContextRepository())
                 )
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(ENDPOINTS_WHITELIST).permitAll()
-                        .requestMatchers(ENDPOINTS_USERS).permitAll()
+                        .requestMatchers(ENDPOINTS_USERS).hasAuthority("DEFAULT")
                         .anyRequest().authenticated()
                 );
 
