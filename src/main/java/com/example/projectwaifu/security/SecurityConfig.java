@@ -53,7 +53,7 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(ENDPOINTS_WHITELIST).permitAll()
-                        .requestMatchers(ENDPOINTS_USERS).hasAuthority("DEFAULT")
+                        .requestMatchers(ENDPOINTS_USERS).permitAll()
                         .anyRequest().authenticated()
                 );
 
