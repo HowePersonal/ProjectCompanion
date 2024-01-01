@@ -24,6 +24,16 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Modifying
     @Transactional
+    @Query(value = "UPDATE users SET username = :username WHERE email = :email", nativeQuery = true)
+    void changeUsername(String username, String email);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE users SET password = :password WHERE email = :email", nativeQuery = true)
+    void changePassword(String password, String email);
+
+    @Modifying
+    @Transactional
     @Query(value = "INSERT INTO userchat (user_id, input, response) VALUES(:userid, :input, :response)", nativeQuery = true)
     void saveChatLog(Long userid, String input, String response);
 

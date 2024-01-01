@@ -25,13 +25,25 @@ public class CustomUserDetails implements UserDetails, Serializable {
         return roleAuthorities;
     }
 
+    public void setUsername(String username) {
+        this.user.setUsername(username);
+    }
+
+    public void setPassword(String password) {
+        this.user.setPassword(password);
+    }
+
     @Override
     public String getUsername() {return this.user.getUsername();}
 
     @Override
     public String getPassword() {return this.user.getPassword();}
 
+    public String getEmail() {return this.user.getEmail();}
+
     public Long getId() {return this.user.getId();}
+
+    public User getUser() {return this.user;}
 
     @Override
     public boolean isAccountNonExpired() {
