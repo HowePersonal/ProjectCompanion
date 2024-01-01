@@ -45,19 +45,19 @@ public class UserController {
     @Autowired
     UserManager userManager;
 
-    @GetMapping("history")
+    @GetMapping("/history")
     public List<Map<String, Object>> getUserHistory() {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return userRepository.getChatLog(currUser.getId());
     }
 
-    @GetMapping("info")
+    @GetMapping("/info")
     public Map<String, String> getUserInfo() {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return Map.ofEntries(Map.entry("email", currUser.getEmail()), Map.entry("username", currUser.getUsername()));
     }
 
-    @PostMapping("change_username")
+    @PostMapping("/change_username")
     public ResponseEntity<Object> changeUsername(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -77,7 +77,7 @@ public class UserController {
         return new ResponseEntity<>(Map.of("message", "Username changed"), HttpStatus.OK);
     }
 
-    @PostMapping("change_password")
+    @PostMapping("/change_password")
     public ResponseEntity<Object> changePassword(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String oldPassword = userInfo.get("oldpassword");

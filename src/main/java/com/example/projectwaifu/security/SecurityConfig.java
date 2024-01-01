@@ -44,7 +44,7 @@ public class SecurityConfig {
     };
 
     private static final String[] ENDPOINTS_USERS = {
-            "/api/chat/**"
+            "/api/**"
     };
 
     @Bean

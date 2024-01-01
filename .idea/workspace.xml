@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc83397b-7faa-4f82-babe-4ed5c0ce8c2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/other/SecurityMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/other/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/ProjectConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/proxy/GeminiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/proxy/GeminiProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/configs/ProjectConfig.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/proxy/GeminiProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/proxy/GeminiProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/SecurityConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +88,7 @@
       <workItem from="1703837675032" duration="3299000" />
       <workItem from="1703840984992" duration="350000" />
       <workItem from="1703893244286" duration="6441000" />
-      <workItem from="1704068034973" duration="8751000" />
+      <workItem from="1704068034973" duration="13779000" />
     </task>
     <servers />
   </component>
