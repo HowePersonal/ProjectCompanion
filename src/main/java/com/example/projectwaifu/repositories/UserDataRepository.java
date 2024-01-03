@@ -1,7 +1,9 @@
 package com.example.projectwaifu.repositories;
 
 import com.example.projectwaifu.models.UserData;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +19,19 @@ public interface UserDataRepository extends JpaRepository<UserData, Long> {
 
     @Query(value = "SELECT coins FROM user_coins WHERE user_id = :userid", nativeQuery = true)
     Integer getCoins(Long userid);
+
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO user_coins (user_id, coins) VALUES(:userid, :coins)", nativeQuery = true)
+    void initializeCoins(Long userid, int coins);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE user_coins SET coins = coins + 1 WHERE user_id = :userid", nativeQuery = true)
+    void incrementCoins(Long userid);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE user_coins SET coins = coins + :newCoins WHERE user_id = :userid", nativeQuery = true)
+    void addCoins(Long userid, int newCoins);
 }

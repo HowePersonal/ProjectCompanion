@@ -40,19 +40,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT u.input, u.response FROM user_chat u WHERE user_id = :userid", nativeQuery = true)
     List<Map<String, Object>> getChatLog(Long userid);
-
-    @Modifying
-    @Transactional
-    @Query(value = "INSERT INTO user_coins (user_id, coins) VALUES(:userid, :coins)", nativeQuery = true)
-    void initializeCoins(Long userid, int coins);
-
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE user_coins SET coins = coins + 1 WHERE user_id = :userid", nativeQuery = true)
-    int incrementCoins(Long userid);
-
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE user_coins SET coins = :coins WHERE user_id = :userid", nativeQuery = true)
-    int setCoins(Long userid, int coins);
 }

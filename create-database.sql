@@ -29,3 +29,10 @@ CREATE TABLE IF NOT EXISTS user_data (
     join_date DATE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+CREATE TABLE IF NOT EXISTS user_items (
+  id serial PRIMARY KEY,
+  user_id INT NOT NULL,
+  product_id VARCHAR(50) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);

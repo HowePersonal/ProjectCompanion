@@ -1,5 +1,6 @@
 package com.example.projectwaifu.controller;
 
+import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.security.CustomUserDetails;
 import com.example.projectwaifu.repositories.UserRepository;
 import com.example.projectwaifu.service.GeminiAPI;
@@ -18,13 +19,16 @@ public class ChatController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserDataRepository userDataRepository;
+
     @PostMapping("/AI")
     public String getAIResponse(
             @RequestParam String input) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String response = geminiAPI.getGeminiResponse(input);
         userRepository.saveChatLog(currUser.getId(), input, response);
-        userRepository.incrementCoins(currUser.getId());
+        userDataRepository.incrementCoins(currUser.getId());
         return response;
     }
 }

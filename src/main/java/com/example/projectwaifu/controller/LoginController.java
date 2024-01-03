@@ -97,7 +97,7 @@ public class LoginController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepository.save(user);
-        userRepository.initializeCoins(user.getId(), 0);
+        userDataRepository.initializeCoins(user.getId(), 0);
         userDataRepository.save(new UserData(user.getId(), 0, "None", "Default"));
         return new ResponseEntity<>(Map.of("message", "Registration success"), HttpStatus.OK);
     }
