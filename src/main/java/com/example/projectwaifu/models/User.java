@@ -1,4 +1,4 @@
-package com.example.projectwaifu.security;
+package com.example.projectwaifu.models;
 
 import jakarta.persistence.*;
 

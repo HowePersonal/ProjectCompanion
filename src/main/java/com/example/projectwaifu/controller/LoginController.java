@@ -1,26 +1,24 @@
-package com.example.projectwaifu.security;
+package com.example.projectwaifu.controller;
 
+import com.example.projectwaifu.models.User;
+import com.example.projectwaifu.models.UserData;
 import com.example.projectwaifu.other.UserManager;
+import com.example.projectwaifu.repositories.UserDataRepository;
+import com.example.projectwaifu.repositories.UserRepository;
+import com.example.projectwaifu.security.LoginRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
 
-import javax.security.auth.login.LoginException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static com.example.projectwaifu.other.SecurityMethods.validatePassword;
 
@@ -34,6 +32,9 @@ public class LoginController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    UserDataRepository userDataRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -63,6 +64,18 @@ public class LoginController {
         }
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<Object> logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        try {
+            userManager.clearContext(httpServletRequest, httpServletResponse);
+            return new ResponseEntity<Object>(Map.of("message", "Logout Success"), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<Object>(Map.of("message", "Logout Failed"), HttpStatus.FORBIDDEN);
+        }
+    }
+
     @GetMapping("/authorities")
     public String getAuthorities() {
         return SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
@@ -84,6 +97,8 @@ public class LoginController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepository.save(user);
+        userRepository.initializeCoins(user.getId(), 0);
+        userDataRepository.save(new UserData(user.getId(), 0, "None", "Default"));
         return new ResponseEntity<>(Map.of("message", "Registration success"), HttpStatus.OK);
     }
 

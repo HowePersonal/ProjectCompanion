@@ -1,11 +1,10 @@
 package com.example.projectwaifu.other;
 
 import com.example.projectwaifu.security.CustomUserDetails;
-import com.example.projectwaifu.security.UserRepository;
+import com.example.projectwaifu.repositories.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -53,6 +52,12 @@ public class UserManager {
         catch (Exception e) {
             return false;
         }
+    }
+
+    public void clearContext(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        SecurityContextHolder.clearContext();
+        SecurityContext emptyContext = SecurityContextHolder.createEmptyContext();
+        securityContextRepository.saveContext(emptyContext, httpServletRequest, httpServletResponse);
     }
 
 }

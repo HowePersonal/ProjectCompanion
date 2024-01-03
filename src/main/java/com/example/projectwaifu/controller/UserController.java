@@ -1,20 +1,17 @@
 package com.example.projectwaifu.controller;
 
+import com.example.projectwaifu.models.UserData;
 import com.example.projectwaifu.other.UserManager;
+import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.security.CustomUserDetails;
-import com.example.projectwaifu.security.LoginController;
-import com.example.projectwaifu.security.User;
-import com.example.projectwaifu.security.UserRepository;
+import com.example.projectwaifu.repositories.UserRepository;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.SecurityContextRepository;
@@ -32,6 +29,9 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    UserDataRepository userDataRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -55,6 +55,21 @@ public class UserController {
     public Map<String, String> getUserInfo() {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return Map.ofEntries(Map.entry("email", currUser.getEmail()), Map.entry("username", currUser.getUsername()));
+    }
+
+    @GetMapping("/coins")
+    public Map<String, Object> getUserCoins() {
+        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return Map.of("coins", userDataRepository.getCoins(currUser.getId()));
+    }
+
+
+    @GetMapping("/profile")
+    public Map<String, Object> getUserProfile() {
+        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserData userData = userDataRepository.getUserData(currUser.getId());
+        int totalMessages = userDataRepository.getUserTotalMessages(currUser.getId());
+        return Map.ofEntries(Map.entry("profile_pic", userData.getProfile_pic()), Map.entry("description", userData.getDescription()), Map.entry("tag", userData.getTag()), Map.entry("total_messages", totalMessages));
     }
 
     @PostMapping("/change_username")

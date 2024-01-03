@@ -1,4 +1,4 @@
-package com.example.projectwaifu.security;
+package com.example.projectwaifu.configs;
 
 import org.hibernate.Session;
 import org.springframework.context.annotation.Bean;

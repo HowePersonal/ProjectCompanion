@@ -1,5 +1,6 @@
-package com.example.projectwaifu.security;
+package com.example.projectwaifu.repositories;
 
+import com.example.projectwaifu.models.User;
 import feign.Param;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -34,9 +35,24 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO userchat (user_id, input, response) VALUES(:userid, :input, :response)", nativeQuery = true)
+    @Query(value = "INSERT INTO user_chat (user_id, input, response) VALUES(:userid, :input, :response)", nativeQuery = true)
     void saveChatLog(Long userid, String input, String response);
 
-    @Query(value = "SELECT u.input, u.response FROM userchat u WHERE user_id = :userid", nativeQuery = true)
+    @Query(value = "SELECT u.input, u.response FROM user_chat u WHERE user_id = :userid", nativeQuery = true)
     List<Map<String, Object>> getChatLog(Long userid);
+
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO user_coins (user_id, coins) VALUES(:userid, :coins)", nativeQuery = true)
+    void initializeCoins(Long userid, int coins);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE user_coins SET coins = coins + 1 WHERE user_id = :userid", nativeQuery = true)
+    int incrementCoins(Long userid);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE user_coins SET coins = :coins WHERE user_id = :userid", nativeQuery = true)
+    int setCoins(Long userid, int coins);
 }
