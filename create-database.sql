@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS user_coins (
     user_id INT NOT NULL,
     coins INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
-)
+);
 
 CREATE TABLE IF NOT EXISTS user_data (
     id serial PRIMARY KEY,
@@ -26,6 +26,6 @@ CREATE TABLE IF NOT EXISTS user_data (
     profile_pic INT NOT NULL,
     description varchar(150),
     tag varchar(20) NOT NULL,
-    join_date DATE NOT NULl,
+    join_date DATE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
-)
+);
