@@ -5,7 +5,6 @@ import com.example.projectwaifu.other.UserManager;
 import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.security.CustomUserDetails;
 import com.example.projectwaifu.repositories.UserRepository;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,8 @@ import static com.example.projectwaifu.other.SecurityMethods.validatePassword;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"}, allowedHeaders = "*", allowCredentials = "true")
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/user/manage")
+public class UserManagerController {
 
     @Autowired
     UserRepository userRepository;
@@ -45,34 +44,9 @@ public class UserController {
     @Autowired
     UserManager userManager;
 
-    @GetMapping("/history")
-    public List<Map<String, Object>> getUserHistory() {
-        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userRepository.getChatLog(currUser.getId());
-    }
-
-    @GetMapping("/info")
-    public Map<String, String> getUserInfo() {
-        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return Map.ofEntries(Map.entry("email", currUser.getEmail()), Map.entry("username", currUser.getUsername()));
-    }
-
-    @GetMapping("/coins")
-    public Map<String, Object> getUserCoins() {
-        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return Map.of("coins", userDataRepository.getCoins(currUser.getId()));
-    }
 
 
-    @GetMapping("/profile")
-    public Map<String, Object> getUserProfile() {
-        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserData userData = userDataRepository.getUserData(currUser.getId());
-        int totalMessages = userDataRepository.getUserTotalMessages(currUser.getId());
-        return Map.ofEntries(Map.entry("profile_pic", userData.getProfile_pic()), Map.entry("description", userData.getDescription()), Map.entry("tag", userData.getTag()), Map.entry("total_messages", totalMessages));
-    }
-
-    @PostMapping("/change_username")
+    @PostMapping("/change/username")
     public ResponseEntity<Object> changeUsername(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -92,7 +66,7 @@ public class UserController {
         return new ResponseEntity<>(Map.of("message", "Username changed"), HttpStatus.OK);
     }
 
-    @PostMapping("/change_password")
+    @PostMapping("/change/password")
     public ResponseEntity<Object> changePassword(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String oldPassword = userInfo.get("oldpassword");
@@ -113,6 +87,15 @@ public class UserController {
         userManager.updateContext(currUser.getEmail(), newPassword, httpServletRequest, httpServletResponse, false);
 
         return new ResponseEntity<>(Map.of("message", "Password changed"), HttpStatus.OK);
+    }
+
+    @PostMapping("/change/description")
+    public ResponseEntity<Object> changeDescription(@RequestBody Map<String, String> data) {
+        String newDescription = data.get("description");
+
+        if (newDescription == null) {
+            return new ResponseEntity<>(Map.of("message", "Improper request body"), HttpStatus.BAD_REQUEST);
+        }
     }
 
 
