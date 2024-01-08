@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"}, allowedHeaders = "*", allowCredentials = "true")
-@RequestMapping("/api/chat")
-public class ChatController {
+@RequestMapping("/api/ai")
+public class AIController {
 
     @Autowired
     private GeminiAPI geminiAPI;
@@ -22,7 +22,7 @@ public class ChatController {
     @Autowired
     private UserDataRepository userDataRepository;
 
-    @PostMapping("/AI")
+    @PostMapping("/chat")
     public String getAIResponse(
             @RequestParam String input) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

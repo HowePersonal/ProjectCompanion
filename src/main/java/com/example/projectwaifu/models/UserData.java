@@ -11,23 +11,28 @@ public class UserData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long user_id;
+    @Column(name = "user_id")
+    private Long userId;
 
-    private int profile_pic;
+    @Column(name = "profile_pic")
+    private int profilePic;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "tag")
     private String tag;
 
-    private Date join_date = new Date();
+    @Column(name = "join_date")
+    private Date joinDate = new Date();
 
     public UserData() {
 
     }
 
     public UserData(Long user_id, int profile_pic, String description, String tag) {
-        this.user_id = user_id;
-        this.profile_pic = profile_pic;
+        this.userId = user_id;
+        this.profilePic = profile_pic;
         this.description = description;
         this.tag = tag;
     }
@@ -40,20 +45,20 @@ public class UserData {
         this.id = id;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUserId(Long user_id) {
+        this.userId = user_id;
     }
 
-    public int getProfile_pic() {
-        return profile_pic;
+    public int getProfilePic() {
+        return profilePic;
     }
 
-    public void setProfile_pic(int profile_pic) {
-        this.profile_pic = profile_pic;
+    public void setProfilePic(int profile_pic) {
+        this.profilePic = profile_pic;
     }
 
     public String getDescription() {

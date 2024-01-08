@@ -1,6 +1,5 @@
 package com.example.projectwaifu.controller;
 
-import com.example.projectwaifu.models.UserData;
 import com.example.projectwaifu.other.UserManager;
 import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.security.CustomUserDetails;
@@ -16,15 +15,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.example.projectwaifu.other.SecurityMethods.validatePassword;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"}, allowedHeaders = "*", allowCredentials = "true")
-@RequestMapping("/api/user/manage")
-public class UserManagerController {
+@RequestMapping("/api/user/change")
+public class UserChangeController {
 
     @Autowired
     UserRepository userRepository;
@@ -46,7 +44,7 @@ public class UserManagerController {
 
 
 
-    @PostMapping("/change/username")
+    @PostMapping("/username")
     public ResponseEntity<Object> changeUsername(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -66,7 +64,7 @@ public class UserManagerController {
         return new ResponseEntity<>(Map.of("message", "Username changed"), HttpStatus.OK);
     }
 
-    @PostMapping("/change/password")
+    @PostMapping("/password")
     public ResponseEntity<Object> changePassword(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String oldPassword = userInfo.get("oldpassword");
@@ -89,13 +87,19 @@ public class UserManagerController {
         return new ResponseEntity<>(Map.of("message", "Password changed"), HttpStatus.OK);
     }
 
-    @PostMapping("/change/description")
+    @PostMapping("/description")
     public ResponseEntity<Object> changeDescription(@RequestBody Map<String, String> data) {
+        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         String newDescription = data.get("description");
 
         if (newDescription == null) {
             return new ResponseEntity<>(Map.of("message", "Improper request body"), HttpStatus.BAD_REQUEST);
         }
+
+        userDataRepository.updateDescriptionByUserId(currUser.getId(), newDescription);
+
+        return new ResponseEntity<>(Map.of("message", "Description Changed"), HttpStatus.OK);
     }
 
 

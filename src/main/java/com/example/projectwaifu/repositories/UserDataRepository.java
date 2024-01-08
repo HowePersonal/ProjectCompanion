@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Repository
 public interface UserDataRepository extends JpaRepository<UserData, Long> {
-    @Query("SELECT u FROM UserData u WHERE u.user_id = :userid")
+    @Query("SELECT u FROM UserData u WHERE u.userId = :userid")
     UserData getUserData(Long userid);
 
     @Query(value="SELECT count(*) FROM user_chat u where u.user_id = :userid", nativeQuery = true)
@@ -19,6 +19,11 @@ public interface UserDataRepository extends JpaRepository<UserData, Long> {
 
     @Query(value = "SELECT coins FROM user_coins WHERE user_id = :userid", nativeQuery = true)
     Integer getCoins(Long userid);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE UserData u SET u.description = :description WHERE u.userId = :userId")
+    void updateDescriptionByUserId(Long userId, String description);
 
     @Modifying
     @Transactional

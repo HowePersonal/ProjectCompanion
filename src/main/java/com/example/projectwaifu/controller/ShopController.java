@@ -29,13 +29,7 @@ public class ShopController {
     ShopManager shopManager;
 
     Map<String, Integer> productPriceMap = new HashMap<>() {{
-        put("profile1", 10);
-        put("profile2", 10);
-        put("profile3", 10);
-        put("background1", 20);
-        put("background2", 20);
-        put("avatar1", 20);
-        put("avatar2", 20);
+
     }};
     @PostMapping("/buy")
     public ResponseEntity<Object> purchase(@RequestParam String productId) {
@@ -54,9 +48,9 @@ public class ShopController {
     }
 
     @GetMapping("/purchased")
-    public List<String> purchased() {
+    public List<String> purchased(@RequestParam String productName) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return inventoryRepository.getPurchased(currUser.getId());
+        return inventoryRepository.getPurchased(currUser.getId(), productName);
     }
 
 }

@@ -11,8 +11,8 @@ import java.util.List;
 
 @Repository
 public interface InventoryRepository extends JpaRepository<UserItem, Long> {
-    @Query("SELECT u.productId FROM UserItem u WHERE u.userId = :userid")
-    List<String> getPurchased(Long userid);
+    @Query("SELECT u.productId FROM UserItem u WHERE u.userId = :userid AND u.productId like CONCAT(:productName, '%')")
+    List<String> getPurchased(Long userid, String productName);
 
     boolean existsByProductId(String product_id);
 }

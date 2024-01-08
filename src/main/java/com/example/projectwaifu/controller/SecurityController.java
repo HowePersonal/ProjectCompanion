@@ -25,7 +25,7 @@ import static com.example.projectwaifu.other.SecurityMethods.validatePassword;
 @RestController
 @RequestMapping("/security")
 @CrossOrigin(origins = { "http://localhost:5173" }, allowedHeaders = "*", allowCredentials = "true")
-public class LoginController {
+public class SecurityController {
 
     @Autowired
     AuthenticationManager authenticationManager;
