@@ -12,7 +12,7 @@ gemini:
 custom:
   datasource:
     url: jdbc:postgresql://localhost:5432/waifudb
-    username: postgres
+    username: wapi_root
     password: password
 #
 #server:
