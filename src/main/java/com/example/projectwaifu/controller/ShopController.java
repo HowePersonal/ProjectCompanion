@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173"}, allowedHeaders = "*", allowCredentials = "true")
 @RequestMapping("/api/shop")
+@CrossOrigin(origins = { "http://localhost:5173" }, allowedHeaders = "*", allowCredentials = "true")
 public class ShopController {
 
     @Autowired
@@ -29,8 +29,15 @@ public class ShopController {
     ShopManager shopManager;
 
     Map<String, Integer> productPriceMap = new HashMap<>() {{
-
+        put("profile1", 10);
+        put("profile2", 10);
+        put("profile3", 10);
+        put("background1", 20);
+        put("background2", 20);
+        put("avatar1", 20);
+        put("avatar2", 20);
     }};
+
     @PostMapping("/buy")
     public ResponseEntity<Object> purchase(@RequestParam String productId) {
         try {

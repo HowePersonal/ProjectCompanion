@@ -5,26 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc83397b-7faa-4f82-babe-4ed5c0ce8c2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectWaifu.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/AIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/AIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/AIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SecurityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserChangeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserChangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserChangeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/InventoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/InventoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/UserItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/UserItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/ShopController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/ShopController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/UserData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/UserData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/UserDataRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/UserDataRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -20,8 +20,8 @@ import java.util.Map;
 import static com.example.projectwaifu.other.SecurityMethods.validatePassword;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173"}, allowedHeaders = "*", allowCredentials = "true")
 @RequestMapping("/api/user/change")
+@CrossOrigin(origins = { "http://localhost:5173" }, allowedHeaders = "*", allowCredentials = "true")
 public class UserChangeController {
 
     @Autowired

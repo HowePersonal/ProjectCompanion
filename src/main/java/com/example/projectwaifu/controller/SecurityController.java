@@ -99,7 +99,7 @@ public class SecurityController {
         userRepository.save(user);
         userDataRepository.initializeCoins(user.getId(), 0);
         userDataRepository.save(new UserData(user.getId(), 0, "None", "Default"));
-        return new ResponseEntity<>(Map.of("message", "Registration success"), HttpStatus.OK);
+        return new ResponseEntity<>(Map.of("message", "Registration Success"), HttpStatus.OK);
     }
 
 }

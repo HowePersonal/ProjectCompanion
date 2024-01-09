@@ -1,6 +1,8 @@
 package com.example.projectwaifu.models;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
 
@@ -8,16 +10,21 @@ import java.io.Serializable;
 @Table(name="users")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
+    @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column(name = "username")
     private String username;
 
+    @NonNull
     @Column(name = "email")
     private String email;
 
+    @NonNull
     @Column(name = "password")
     private String password;
 

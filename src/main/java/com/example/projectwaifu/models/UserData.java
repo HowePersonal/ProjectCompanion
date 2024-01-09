@@ -1,6 +1,7 @@
 package com.example.projectwaifu.models;
 
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
 import java.util.Date;
 
@@ -11,18 +12,22 @@ public class UserData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column(name = "user_id")
     private Long userId;
 
+    @NonNull
     @Column(name = "profile_pic")
-    private int profilePic;
+    private Integer profilePic;
 
     @Column(name = "description")
     private String description;
 
+    @NonNull
     @Column(name = "tag")
     private String tag;
 
+    @NonNull
     @Column(name = "join_date")
     private Date joinDate = new Date();
 

@@ -1,6 +1,7 @@
 package com.example.projectwaifu.models;
 
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name="user_items")
@@ -9,9 +10,11 @@ public class UserItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column(name = "user_id")
     private Long userId;
 
+    @NonNull
     @Column(name = "product_id")
     private String productId;
 
