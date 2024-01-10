@@ -5,7 +5,17 @@ spring:
   session:
     jdbc:
       initialize-schema: always
-
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 195192037893-34d1201fp2sujorfbb26ufo8vj8e730g.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: 'http://localhost:8080/security/oauth2/callback'
+            scope:
+              - openid
+              - email
 gemini:
   key: AIzaSyDXldaAlDkKOvpbxqMjkyNkSQyE1BFG08g
 

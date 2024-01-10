@@ -2,6 +2,7 @@ package com.example.projectwaifu.controller;
 
 import com.example.projectwaifu.models.User;
 import com.example.projectwaifu.models.UserData;
+import com.example.projectwaifu.other.SecurityMethods;
 import com.example.projectwaifu.other.UserManager;
 import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.repositories.UserRepository;
@@ -17,6 +18,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +49,10 @@ public class SecurityController {
     @Autowired
     UserManager userManager;
 
+    @Autowired
+    SecurityMethods securityMethods;
+
+
 
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
@@ -62,6 +70,25 @@ public class SecurityController {
         catch (Exception e) {
             return new ResponseEntity<Object>(Map.of("message", "Login Failed"), HttpStatus.FORBIDDEN);
         }
+    }
+
+    @GetMapping("/oauth2")
+    @ResponseBody
+    public String oauth2Login() {
+        return "<a href=\"/oauth2/authorization/google\">Google</a>";
+    }
+
+    @GetMapping("/oauth2/callback")
+    public String oauth2LoginCallback(
+            @RequestParam(name = "state") String state,
+            @RequestParam(name = "code") String code,
+            @RequestParam(name = "scope") String scope,
+            HttpServletRequest request
+    ) throws IOException, URISyntaxException, InterruptedException {
+        securityMethods.createOauth2Token(request, state, scope);
+
+
+        return state + "-----------" + code + "-----------" + scope;
     }
 
     @PostMapping("/logout")

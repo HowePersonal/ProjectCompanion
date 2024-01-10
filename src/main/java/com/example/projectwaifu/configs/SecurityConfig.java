@@ -48,10 +48,12 @@ public class SecurityConfig {
             "/api/**"
     };
 
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http    .csrf(AbstractHttpConfigurer::disable)
-                .cors(Customizer.withDefaults())
+
                 .securityContext((securityContext) -> securityContext
                         .requireExplicitSave(true)
                         .securityContextRepository(new HttpSessionSecurityContextRepository())
@@ -60,6 +62,12 @@ public class SecurityConfig {
                         .requestMatchers(ENDPOINTS_WHITELIST).permitAll()
                         .requestMatchers(ENDPOINTS_USERS).hasAuthority("DEFAULT")
                         .anyRequest().authenticated()
+                )
+                .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/security/oauth2")
+                        .redirectionEndpoint(redirection -> redirection
+                                .baseUri("http://localhost:8080/security/oauth2/callback")
+                        )
                 );
 
         return http.build();
