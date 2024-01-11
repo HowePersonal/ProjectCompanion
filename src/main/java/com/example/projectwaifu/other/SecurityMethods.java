@@ -1,29 +1,20 @@
+
 package com.example.projectwaifu.other;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.context.SecurityContextRepository;
-import org.springframework.stereotype.Component;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.http.HttpResponse;
+import com.google.gson.Gson;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.security.SecureRandom;
-import java.util.Scanner;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,7 +24,12 @@ public class SecurityMethods {
     @Value("${spring.security.oauth2.client.registration.google.client-id}")
     String oauth2ClientId;
 
+    @Value("${spring.security.oauth2.client.registration.google.client-secret}")
+    String oauth2ClientSecret;
+
     HttpClient httpClient = HttpClient.newHttpClient();
+
+    Gson gson = new Gson();
 
     public static boolean validatePassword(String password) {
         String passwordPattern = "^(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{6,}$";
@@ -42,27 +38,29 @@ public class SecurityMethods {
         return matcher.matches();
     }
 
-    public void createOauth2Token(HttpServletRequest request, String state, String scope) throws URISyntaxException, IOException, InterruptedException {
+    public void createOauth2Token(HttpServletRequest request) {
         String stateToken = new BigInteger(130, new SecureRandom()).toString();
         request.getSession().setAttribute("state", stateToken);
+    }
 
-        String requestURI = String.format(
-                "https://accounts.google.com/o/oauth2/v2/auth?" +
-                        "response_type=code&" +
-                        "client_id=%s&" +
-                        "scope=%s&" +
-                        "redirect_uri=http://localhost:8080/security/oauth2/authenticated" +
-                        "state=%s&" +
-                        "nonce=0394852-3190485-2490358&", oauth2ClientId, scope, state
-                        );
+    public void exchangeOauth2Code(String code) throws IOException, URISyntaxException, InterruptedException {
+        String requestURI = "https://oauth2.googleapis.com/token";
 
-        HttpRequest authRequest = HttpRequest.newBuilder()
+
+        String requestBody = gson.toJson(Map.ofEntries(Map.entry("code", code), Map.entry("client_id", oauth2ClientId),
+                Map.entry("client_secret", oauth2ClientSecret), Map.entry("redirect_uri", "http://localhost:8080/security/oauth2/login"),
+                Map.entry("grant_type", "authorization_code")));
+
+        HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI(requestURI))
-                .GET()
+                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                .header("Content-Type", "application/json")
                 .build();
 
-        httpClient.send(authRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
 
     }
+
 
 }

@@ -74,21 +74,25 @@ public class SecurityController {
 
     @GetMapping("/oauth2")
     @ResponseBody
-    public String oauth2Login() {
+    public String oauth2() {
         return "<a href=\"/oauth2/authorization/google\">Google</a>";
     }
 
     @GetMapping("/oauth2/callback")
-    public String oauth2LoginCallback(
+    public void oauth2Callback(
             @RequestParam(name = "state") String state,
             @RequestParam(name = "code") String code,
             @RequestParam(name = "scope") String scope,
             HttpServletRequest request
     ) throws IOException, URISyntaxException, InterruptedException {
-        securityMethods.createOauth2Token(request, state, scope);
+        securityMethods.createOauth2Token(request);
+        securityMethods.exchangeOauth2Code(code);
 
+    }
 
-        return state + "-----------" + code + "-----------" + scope;
+    @GetMapping("/oauth2/login")
+    public String oauth2Authenticated() {
+        return "Login Success";
     }
 
     @PostMapping("/logout")
