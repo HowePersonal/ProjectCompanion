@@ -1,5 +1,6 @@
 package com.example.projectwaifu.configs;
 
+import com.google.api.client.util.Value;
 import org.hibernate.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,6 +37,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity(debug = false)
 public class SecurityConfig {
+    @Value("${base-domain}")
+    private String base_domain;
     private static final String[] ENDPOINTS_WHITELIST = {
             "/index.html",
             "/",
@@ -64,12 +67,10 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
-                        .loginPage("/security/oauth2")
                         .redirectionEndpoint(redirection -> redirection
-                                .baseUri("http://localhost:8080/security/oauth2/callback")
+                                .baseUri(base_domain+"/security/oauth2/callback")
                         )
                 );
-
         return http.build();
     }
 

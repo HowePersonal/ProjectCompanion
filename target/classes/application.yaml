@@ -24,6 +24,8 @@ custom:
     url: jdbc:postgresql://localhost:5432/waifudb
     username: wapi_root
     password: password
+
+base-domain: http://localhost:8080
 #
 #server:
 #  ssl:

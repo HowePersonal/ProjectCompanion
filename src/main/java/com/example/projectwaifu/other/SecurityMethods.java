@@ -4,6 +4,7 @@ package com.example.projectwaifu.other;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.security.SecureRandom;
+import java.util.Base64;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,10 +24,13 @@ import java.util.regex.Pattern;
 public class SecurityMethods {
 
     @Value("${spring.security.oauth2.client.registration.google.client-id}")
-    String oauth2ClientId;
+    private String oauth2ClientId;
 
     @Value("${spring.security.oauth2.client.registration.google.client-secret}")
-    String oauth2ClientSecret;
+    private String oauth2ClientSecret;
+
+    @Value("${base-domain}")
+    private String base_domain;
 
     HttpClient httpClient = HttpClient.newHttpClient();
 
@@ -43,12 +48,12 @@ public class SecurityMethods {
         request.getSession().setAttribute("state", stateToken);
     }
 
-    public void exchangeOauth2Code(String code) throws IOException, URISyntaxException, InterruptedException {
+    public String oauth2CodeToEmail(String code) throws IOException, URISyntaxException, InterruptedException {
         String requestURI = "https://oauth2.googleapis.com/token";
 
 
         String requestBody = gson.toJson(Map.ofEntries(Map.entry("code", code), Map.entry("client_id", oauth2ClientId),
-                Map.entry("client_secret", oauth2ClientSecret), Map.entry("redirect_uri", "http://localhost:8080/security/oauth2/login"),
+                Map.entry("client_secret", oauth2ClientSecret), Map.entry("redirect_uri", "http://localhost:8080/security/oauth2/callback"),
                 Map.entry("grant_type", "authorization_code")));
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -58,8 +63,17 @@ public class SecurityMethods {
                 .build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+        Map<String, String> responseBody = gson.fromJson(response.body(), new TypeToken<Map<String, String>>() {}.getType());
+        String idToken = responseBody.get("id_token");
 
+        String[] tokenChunks = idToken.split("\\.");
+
+        Base64.Decoder decoder = Base64.getUrlDecoder();
+
+        String tokenPayload = new String(decoder.decode(tokenChunks[1]));
+        Map<String, String> payloadMap = gson.fromJson(tokenPayload, new TypeToken<Map<String, String>>() {}.getType());
+
+        return payloadMap.get("email");
     }
 
 

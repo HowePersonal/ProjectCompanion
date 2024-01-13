@@ -57,7 +57,8 @@ public class SecurityController {
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         try {
-            if (!userManager.updateContext(loginRequest.getEmail(), loginRequest.getPassword(), httpServletRequest, httpServletResponse, false)) {
+            boolean encoded = !loginRequest.getPassword().equals("oauth2") ? false : true;
+            if (!userManager.updateContext(loginRequest.getEmail(), loginRequest.getPassword(), httpServletRequest, httpServletResponse, encoded)) {
                 throw new Exception("Invalid login");
             };
 
@@ -72,27 +73,29 @@ public class SecurityController {
         }
     }
 
-    @GetMapping("/oauth2")
-    @ResponseBody
-    public String oauth2() {
-        return "<a href=\"/oauth2/authorization/google\">Google</a>";
+    //      /oauth2/authorization/google
+
+    @GetMapping("/oauth2/login")
+    public void oauth2Login() {
+
+    }
+
+    @GetMapping("/oauth2/register")
+    public void oauth2Register() {
+
     }
 
     @GetMapping("/oauth2/callback")
-    public void oauth2Callback(
+    public ResponseEntity<Object> oauth2Callback(
             @RequestParam(name = "state") String state,
             @RequestParam(name = "code") String code,
             @RequestParam(name = "scope") String scope,
-            HttpServletRequest request
+            HttpServletRequest httpServletRequest,
+            HttpServletResponse httpServletResponse
     ) throws IOException, URISyntaxException, InterruptedException {
-        securityMethods.createOauth2Token(request);
-        securityMethods.exchangeOauth2Code(code);
-
-    }
-
-    @GetMapping("/oauth2/login")
-    public String oauth2Authenticated() {
-        return "Login Success";
+            securityMethods.createOauth2Token(httpServletRequest);
+            String userEmail = securityMethods.oauth2CodeToEmail(code);
+            return login(new LoginRequest(userEmail, "oauth2"), httpServletRequest, httpServletResponse);
     }
 
     @PostMapping("/logout")
