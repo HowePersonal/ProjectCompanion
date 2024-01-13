@@ -49,7 +49,14 @@ public class SecurityMethods {
     }
 
     public String oauth2CodeToEmail(String code) throws IOException, URISyntaxException, InterruptedException {
-        String requestURI = "https://oauth2.googleapis.com/token";
+        HttpRequest googleDocumentRequest = HttpRequest.newBuilder()
+                .uri(new URI("https://accounts.google.com/.well-known/openid-configuration"))
+                .build();
+
+        HttpResponse<String> googleDocumentResponse = httpClient.send(googleDocumentRequest, HttpResponse.BodyHandlers.ofString());
+        Map<String, Object> googleDocumentBody = gson.fromJson(googleDocumentResponse.body(), new TypeToken<Map<String, Object>>() {}.getType());
+
+        String requestURI = String.valueOf(googleDocumentBody.get("token_endpoint"));
 
 
         String requestBody = gson.toJson(Map.ofEntries(Map.entry("code", code), Map.entry("client_id", oauth2ClientId),

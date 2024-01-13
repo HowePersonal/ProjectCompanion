@@ -57,7 +57,7 @@ public class SecurityController {
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         try {
-            boolean encoded = !loginRequest.getPassword().equals("oauth2") ? false : true;
+            boolean encoded = !(loginRequest.getPassword().equals("oauth2/openid")) ? false : true;
             if (!userManager.updateContext(loginRequest.getEmail(), loginRequest.getPassword(), httpServletRequest, httpServletResponse, encoded)) {
                 throw new Exception("Invalid login");
             };
@@ -69,6 +69,7 @@ public class SecurityController {
             return new ResponseEntity<Object>(loginResponse, HttpStatus.OK);
         }
         catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<Object>(Map.of("message", "Login Failed"), HttpStatus.FORBIDDEN);
         }
     }
@@ -76,12 +77,15 @@ public class SecurityController {
     //      /oauth2/authorization/google
 
     @GetMapping("/oauth2/login")
-    public void oauth2Login() {
-
+    public void oauth2Login(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
+        httpServletRequest.getSession().setAttribute("security_request", "login");
+        httpServletResponse.sendRedirect("/oauth2/authorization/google");
     }
 
     @GetMapping("/oauth2/register")
-    public void oauth2Register() {
+    public void oauth2Register(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
+        httpServletRequest.getSession().setAttribute("security_request", "register");
+        httpServletResponse.sendRedirect("/oauth2/authorization/google");
 
     }
 
@@ -93,9 +97,16 @@ public class SecurityController {
             HttpServletRequest httpServletRequest,
             HttpServletResponse httpServletResponse
     ) throws IOException, URISyntaxException, InterruptedException {
-            securityMethods.createOauth2Token(httpServletRequest);
+            String securityRequest = (String) httpServletRequest.getSession().getAttribute("security_request");
+            if (securityRequest == null) {
+                return new ResponseEntity<Object>(Map.of("message", "Oauth2 Request Failed"), HttpStatus.BAD_REQUEST);
+            }
             String userEmail = securityMethods.oauth2CodeToEmail(code);
-            return login(new LoginRequest(userEmail, "oauth2"), httpServletRequest, httpServletResponse);
+            httpServletResponse.sendRedirect("/");
+            if (securityRequest.equals("login"))
+                return login(new LoginRequest(userEmail, "oauth2/openid"), httpServletRequest, httpServletResponse);
+            else
+                return register(new User(userEmail, userEmail, "oauth2/openid"));
     }
 
     @PostMapping("/logout")
@@ -128,7 +139,11 @@ public class SecurityController {
         if (!validatePassword(user.getPassword())) {
             return new ResponseEntity<>(Map.of("message", "Password not matching requirement"), HttpStatus.BAD_REQUEST);
         }
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
+
+        String encodedPassword = user.getPassword();
+        if (!user.getPassword().equals("oauth2/openid"))
+            encodedPassword = passwordEncoder.encode(user.getPassword());
+
         user.setPassword(encodedPassword);
         userRepository.save(user);
         userDataRepository.initializeCoins(user.getId(), 0);
