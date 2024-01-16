@@ -1,7 +1,7 @@
 package com.example.projectwaifu.repositories;
 
-import com.example.projectwaifu.models.Friends;
-import com.example.projectwaifu.models.FriendsKey;
+import com.example.projectwaifu.models.entities.Friends;
+import com.example.projectwaifu.models.entities.FriendsKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

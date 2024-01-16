@@ -1,13 +1,11 @@
 package com.example.projectwaifu.repositories;
 
-import com.example.projectwaifu.models.UserData;
+import com.example.projectwaifu.models.entities.UserData;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.Map;
 
 @Repository
 public interface UserDataRepository extends JpaRepository<UserData, Long> {

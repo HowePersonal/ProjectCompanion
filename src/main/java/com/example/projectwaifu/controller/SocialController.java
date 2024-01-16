@@ -1,7 +1,7 @@
 package com.example.projectwaifu.controller;
 
-import com.example.projectwaifu.models.Friends;
-import com.example.projectwaifu.models.FriendsKey;
+import com.example.projectwaifu.models.entities.Friends;
+import com.example.projectwaifu.models.entities.FriendsKey;
 import com.example.projectwaifu.repositories.SocialRepository;
 import com.example.projectwaifu.repositories.UserRepository;
 import com.example.projectwaifu.security.CustomUserDetails;
@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 

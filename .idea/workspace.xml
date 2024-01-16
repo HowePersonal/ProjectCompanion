@@ -5,11 +5,300 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc83397b-7faa-4f82-babe-4ed5c0ce8c2c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend_test/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/.bin/uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/.package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/src/browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/src/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/debug/src/node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/HISTORY.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/example/eventsource-polyfill.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/example/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/example/sse-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/example/sse-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/lib/eventsource-polyfill.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/lib/eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/eventsource/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/lib/faye/eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/lib/faye/websocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/lib/faye/websocket/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/lib/faye/websocket/api/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/lib/faye/websocket/api/event_target.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/lib/faye/websocket/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/faye-websocket/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/http-parser-js/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/http-parser-js/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/http-parser-js/http-parser.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/http-parser-js/http-parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/http-parser-js/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/inherits/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/inherits/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/inherits/inherits.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/inherits/inherits_browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/inherits/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/ms/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/ms/license.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/ms/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/ms/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/querystringify/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/querystringify/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/querystringify/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/querystringify/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/requires-port/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/requires-port/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/requires-port/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/requires-port/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/requires-port/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/requires-port/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/requires-port/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/safe-buffer/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/safe-buffer/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/safe-buffer/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/safe-buffer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/safe-buffer/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/AUTHORS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/CODE_OF_CONDUCT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/Changelog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/dist/sockjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/dist/sockjs.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/dist/sockjs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/dist/sockjs.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/entry.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/event/close.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/event/emitter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/event/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/event/eventtarget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/event/trans-message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/facade.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/iframe-bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/info-ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/info-iframe-receiver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/info-iframe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/info-receiver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/location.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/shims.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/browser/abstract-xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/browser/eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/browser/websocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/driver/eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/driver/websocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/driver/xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/htmlfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/iframe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/jsonp-polling.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/lib/ajax-based.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/lib/buffered-sender.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/lib/iframe-wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/lib/polling.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/lib/sender-receiver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/receiver/eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/receiver/htmlfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/receiver/jsonp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/receiver/xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/sender/jsonp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/sender/xdr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/sender/xhr-cors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/sender/xhr-fake.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/sender/xhr-local.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/websocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/xdr-polling.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/xdr-streaming.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/xhr-polling.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/transport/xhr-streaming.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/browser-crypto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/escape.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/iframe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/log.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/object.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/random.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/transport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/utils/url.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/lib/version.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs-client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/COPYING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/Changelog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/chunking-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/iframe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/sockjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/trans-eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/trans-htmlfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/trans-jsonp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/trans-websocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/trans-xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/transport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/lib/webjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/sockjs/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/url-parse/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/url-parse/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/url-parse/dist/url-parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/url-parse/dist/url-parse.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/url-parse/dist/url-parse.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/url-parse/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/url-parse/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/bin/uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/md5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/nil.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/regex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/rng.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/sha1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/stringify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/v1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/v3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/v35.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/v4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/v5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-browser/version.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/md5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/nil.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/regex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/rng.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/sha1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/stringify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/v1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/v3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/v35.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/v4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/v5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/esm-node/version.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/md5-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/md5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/nil.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/regex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/rng-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/rng.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/sha1-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/sha1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/stringify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuid.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidNIL.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidParse.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidStringify.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidValidate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidVersion.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidv1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidv3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidv4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/umd/uuidv5.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/uuid-bin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/v1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/v3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/v35.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/v4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/v5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/dist/version.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/uuid/wrapper.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/draft75.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/draft76.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/headers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/hybi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/hybi/frame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/hybi/message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/proxy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/driver/stream_reader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/http_parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/lib/websocket/streams.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-driver/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/pipeline/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/pipeline/cell.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/pipeline/functor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/pipeline/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/pipeline/pledge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/pipeline/ring_buffer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/lib/websocket_extensions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/node_modules/websocket-extensions/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend_test/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/MessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Conversations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Messages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/MessageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/configs/WebSocketConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/MessageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/ChatMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.projectwaifu.ProjectWaifuApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.projectwaifu.ProjectWaifuApplicationTests.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/projectwaifu/ProjectWaifuApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SecurityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/other/SecurityMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/other/SecurityMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql-setup-files/create-database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql-setup-files/create-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/SecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SocialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SocialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/UserDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/Friends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Friends.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/FriendsKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/FriendsKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/UserItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/UserItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/other/ShopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/other/ShopManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/InventoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/InventoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/SocialRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/SocialRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/configs/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails$SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/SecurityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/SecurityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +309,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -38,31 +329,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ProjectWaifuApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Projects/sukashii/sukashiibackend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ProjectWaifuApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "development",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/how/Projects/ProjectWAPI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
   <component name="RunManager">
@@ -77,7 +372,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-abbd5a8d" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-76dd8dae" />
       </set>
     </attachedChunks>
   </component>
@@ -106,6 +401,13 @@
       <workItem from="1704958431909" duration="2281000" />
       <workItem from="1705117889103" duration="7135000" />
       <workItem from="1705129905743" duration="4219000" />
+      <workItem from="1705186401356" duration="2054000" />
+      <workItem from="1705189420147" duration="3816000" />
+      <workItem from="1705210244922" duration="2025000" />
+      <workItem from="1705267513305" duration="783000" />
+      <workItem from="1705365771477" duration="5832000" />
+      <workItem from="1705376725313" duration="978000" />
+      <workItem from="1705377708729" duration="9927000" />
     </task>
     <servers />
   </component>

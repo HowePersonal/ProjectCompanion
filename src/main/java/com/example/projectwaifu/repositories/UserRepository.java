@@ -1,6 +1,6 @@
 package com.example.projectwaifu.repositories;
 
-import com.example.projectwaifu.models.User;
+import com.example.projectwaifu.models.entities.User;
 import feign.Param;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;

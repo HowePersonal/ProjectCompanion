@@ -1,6 +1,6 @@
 package com.example.projectwaifu.controller;
 
-import com.example.projectwaifu.models.UserData;
+import com.example.projectwaifu.models.entities.UserData;
 import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.repositories.UserRepository;
 import com.example.projectwaifu.security.CustomUserDetails;
@@ -39,9 +39,9 @@ public class UserDataController {
     }
 
     @GetMapping("/info")
-    public Map<String, String> getUserInfo() {
+    public Map<String, Object> getUserInfo() {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return Map.ofEntries(Map.entry("email", currUser.getEmail()), Map.entry("username", currUser.getUsername()));
+        return Map.ofEntries(Map.entry("id", currUser.getId()), Map.entry("email", currUser.getEmail()), Map.entry("username", currUser.getUsername()));
     }
 
     @GetMapping("/profile")

@@ -1,4 +1,4 @@
-package com.example.projectwaifu.models;
+package com.example.projectwaifu.models.entities;
 
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;

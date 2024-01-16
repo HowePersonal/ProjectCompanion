@@ -1,12 +1,11 @@
-package com.example.projectwaifu.controller;
+package com.example.projectwaifu.security;
 
-import com.example.projectwaifu.models.User;
-import com.example.projectwaifu.models.UserData;
+import com.example.projectwaifu.models.entities.User;
+import com.example.projectwaifu.models.entities.UserData;
 import com.example.projectwaifu.other.SecurityMethods;
 import com.example.projectwaifu.other.UserManager;
 import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.repositories.UserRepository;
-import com.example.projectwaifu.security.LoginRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -53,7 +51,6 @@ public class SecurityController {
     SecurityMethods securityMethods;
 
 
-
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         try {
@@ -73,8 +70,6 @@ public class SecurityController {
             return new ResponseEntity<Object>(Map.of("message", "Login Failed"), HttpStatus.FORBIDDEN);
         }
     }
-
-    //      /oauth2/authorization/google
 
     @GetMapping("/oauth2/login")
     public void oauth2Login(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {

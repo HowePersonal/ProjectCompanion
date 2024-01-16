@@ -1,5 +1,6 @@
-package com.example.projectwaifu.models;
+package com.example.projectwaifu.models.entities;
 
+import com.example.projectwaifu.models.entities.FriendsKey;
 import jakarta.persistence.*;
 
 @Entity

@@ -1,6 +1,6 @@
 package com.example.projectwaifu.security;
 
-import com.example.projectwaifu.models.User;
+import com.example.projectwaifu.models.entities.User;
 import com.example.projectwaifu.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

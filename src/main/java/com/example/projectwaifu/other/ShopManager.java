@@ -1,12 +1,10 @@
 package com.example.projectwaifu.other;
 
-import com.example.projectwaifu.models.User;
-import com.example.projectwaifu.models.UserItem;
+import com.example.projectwaifu.models.entities.UserItem;
 import com.example.projectwaifu.repositories.InventoryRepository;
 import com.example.projectwaifu.repositories.UserDataRepository;
 import com.example.projectwaifu.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
