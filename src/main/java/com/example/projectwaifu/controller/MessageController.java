@@ -1,6 +1,7 @@
 package com.example.projectwaifu.controller;
 
 import com.example.projectwaifu.models.entities.Messages;
+import com.example.projectwaifu.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -18,11 +19,13 @@ import java.security.Principal;
 public class MessageController {
 
     @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
+    private MessageRepository messageRepository;
 
-    @MessageMapping("/conversation")
-    public void sendConvo(@Payload Messages message) {
-        simpMessagingTemplate.convertAndSend("/queue/"+message.getConversationId(), message);
+    @MessageMapping("/conversation/{message.getConversationId()}")
+    @SendTo("/queue/{message.getConversationId()}")
+    public Messages sendConversationMessage(@Payload Messages message) {
+        messageRepository.save(message);
+        return message;
     }
 
     @MessageMapping("/public")

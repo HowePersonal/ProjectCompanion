@@ -40,6 +40,7 @@ public class SecurityConfig {
     @Value("${base-domain}")
     private String base_domain;
     private static final String[] ENDPOINTS_WHITELIST = {
+            "/**",
             "/index.html",
             "/",
             "/assets/**",

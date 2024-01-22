@@ -1,25 +1,39 @@
 var chatPage = document.querySelector('#chat-page');
 var messageForm = document.querySelector('#messageForm');
+
+var connectForm = document.querySelector('#connectForm')
+
 var messageInput = document.querySelector('#message');
 var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
-var connectButton = document.querySelector('#connectBTN');
 
+var usernameBox = document.querySelector('#username');
+var userIdBox = document.querySelector('#userId')
+var conversationIdBox = document.querySelector('#conversationId')
 
 var stompClient = null;
-var username = "testUser";
 
 var colors = [
     '#2196F3', '#32c787', '#00BCD4', '#ff5652',
     '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
 ];
 
+var username;
+var userId;
+var conversationId;
+
 function connect(event) {
-    console.log("Connecting")
+    username = usernameBox.value;
+    userId = userIdBox.value;
+    conversationId = conversationIdBox.value;
+
+    console.log("Inputted username: " + username)
+    console.log("Inputted user id: " + userId)
+    console.log("Inputted conversation id: " + conversationId)
 
     if(username) {
 
-        var socket = new SockJS('/chat-connect', null, {
+        var socket = new SockJS('/ws', null, {
             withCredentials: true
         });
         stompClient = Stomp.over(socket);
@@ -32,7 +46,7 @@ function connect(event) {
 
 function onConnected() {
     // Subscribe to the Public Topic
-    stompClient.subscribe('/topic/public', onMessageReceived);
+    stompClient.subscribe('/queue/' + conversationId, onMessageReceived);
     connectingElement.classList.add('hidden');
 }
 
@@ -46,10 +60,11 @@ function sendMessage(event) {
     var messageContent = messageInput.value.trim();
     if(messageContent && stompClient) {
         var chatMessage = {
-            senderUsername: username,
-            content: messageInput.value
+            senderId: userId,
+            content: messageInput.value,
+            conversationId: conversationId
         };
-        stompClient.send("/chat-api/public", {}, JSON.stringify(chatMessage));
+        stompClient.send("/chat/conversation/" + conversationId, {}, JSON.stringify(chatMessage));
         messageInput.value = '';
     }
     event.preventDefault();
@@ -63,14 +78,12 @@ function onMessageReceived(payload) {
     messageElement.classList.add('chat-message');
 
     var avatarElement = document.createElement('i');
-    var avatarText = document.createTextNode(message.senderUsername[0]);
-    avatarElement.appendChild(avatarText);
-    avatarElement.style['background-color'] = getAvatarColor(message.senderUsername);
+    avatarElement.style['background-color'] = "red";
 
     messageElement.appendChild(avatarElement);
 
     var usernameElement = document.createElement('span');
-    var usernameText = document.createTextNode(message.senderUsername);
+    var usernameText = document.createTextNode(message.senderId);
     usernameElement.appendChild(usernameText);
     messageElement.appendChild(usernameElement);
 
@@ -94,5 +107,5 @@ function getAvatarColor(messageSender) {
     return colors[index];
 }
 
-connectButton.addEventListener('click', connect, true)
+connectForm.addEventListener('submit', connect, true)
 messageForm.addEventListener('submit', sendMessage, true)

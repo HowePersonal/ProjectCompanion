@@ -5,48 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc83397b-7faa-4f82-babe-4ed5c0ce8c2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/ConversationParticipant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/ConversationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql-setup-files/create-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql-setup-files/create-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/WebSocketConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SocialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SocialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Conversations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Conversation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/UserItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/UserItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/InventoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/InventoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserDataRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/configs/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/configs/WebSocketConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/AIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/AIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/MessageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/ShopController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/SocialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/SocialController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/UserChangeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/UserChangeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/UserDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/controller/UserDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/ChatMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/Friends.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/FriendsKey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/UserData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/UserItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/other/ShopManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/other/ShopManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/InventoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/InventoryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/SocialRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/SocialRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/UserDataRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/UserDataRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails$SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/CustomUserDetailsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/SecurityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/security/SecurityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/entities/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/entities/Messages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +126,7 @@
       <workItem from="1705471711127" duration="4962000" />
       <workItem from="1705735283891" duration="1188000" />
       <workItem from="1705736476867" duration="1181000" />
-      <workItem from="1705893393359" duration="2420000" />
+      <workItem from="1705893393359" duration="6763000" />
     </task>
     <servers />
   </component>

@@ -19,14 +19,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableSimpleBroker("/topic", "/queue/conversation-id");
-        config.setApplicationDestinationPrefixes("/chat-api");
-        // config.setUserDestinationPrefix("");
+        config.enableSimpleBroker("/topic", "/queue");
+        config.setApplicationDestinationPrefixes("/chat");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/chat-connect").setAllowedOriginPatterns("http://localhost:8080", "http://localhost:5432").withSockJS();
+        registry.addEndpoint("/ws").setAllowedOriginPatterns("http://localhost:8080", "http://localhost:5432").withSockJS();
 
     }
 }

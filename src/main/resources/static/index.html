@@ -14,7 +14,12 @@
       <div class="connecting">
         Connecting...
       </div>
-      <button type="button" id="connectBTN">connect</button>
+      <form id="connectForm" name="connectForm">
+          <input type="text" id="userId" placeholder="user id" />
+          <input type="text" id="username" placeholder="username" />
+          <input type="text" id="conversationId" placeholder="conversation id"/>
+          <button type="submit">connect</button>
+      </form>
       <ul id="messageArea">
 
       </ul>
@@ -30,6 +35,6 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-  <script src="/js/main.js" defer></script>
+  <script src="/js/main.js"></script>
   </body>
 </html>

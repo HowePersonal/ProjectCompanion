@@ -2,11 +2,13 @@ package com.example.projectwaifu.models.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "messages")
-public class Messages {
+public class Messages implements Serializable {
+    private static final Long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
