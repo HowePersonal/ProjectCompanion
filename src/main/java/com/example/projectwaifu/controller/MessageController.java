@@ -22,7 +22,7 @@ public class MessageController {
     private MessageRepository messageRepository;
 
     @MessageMapping("/conversation/{message.getConversationId()}")
-    @SendTo("/queue/{message.getConversationId()}")
+    @SendTo("/queue/conversation/{message.getConversationId()}")
     public Messages sendConversationMessage(@Payload Messages message) {
         messageRepository.save(message);
         return message;

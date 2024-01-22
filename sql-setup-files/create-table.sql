@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS messages (
     sender_id INT NOT NULL,
     message_content VARCHAR(500) NOT NULL,
     conversation_id INT NOT NULL,
-    sent_timestamp DATE NOT NULL,
+    sent_timestamp timestamp NOT NULL,
     FOREIGN KEY (conversation_id) REFERENCES conversations(id),
     FOREIGN KEY (sender_id) REFERENCES users(id)
 );

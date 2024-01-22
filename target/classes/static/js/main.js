@@ -46,7 +46,7 @@ function connect(event) {
 
 function onConnected() {
     // Subscribe to the Public Topic
-    stompClient.subscribe('/queue/' + conversationId, onMessageReceived);
+    stompClient.subscribe('/queue/conversation/' + conversationId, onMessageReceived);
     connectingElement.classList.add('hidden');
 }
 

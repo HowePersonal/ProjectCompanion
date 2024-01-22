@@ -3,6 +3,7 @@ package com.example.projectwaifu.models.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -24,7 +25,15 @@ public class Messages implements Serializable {
     private int conversationId;
 
     @Column(name = "sent_timestamp")
-    private Date sentTimestamp = new Date();
+    private Timestamp sentTimestamp = new Timestamp(System.currentTimeMillis());
+
+    public int getId() {
+        return id;
+    }
+
+    public Timestamp getSentTimestamp() {
+        return sentTimestamp;
+    }
 
     public int getSenderId() {
         return senderId;

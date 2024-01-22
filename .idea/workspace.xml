@@ -6,14 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="dc83397b-7faa-4f82-babe-4ed5c0ce8c2c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/configs/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql-setup-files/create-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql-setup-files/create-table.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SocialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/controller/SocialController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/models/entities/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/repositories/MessageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/entities/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/models/entities/Messages.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/MessageRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/repositories/MessageRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +126,7 @@
       <workItem from="1705471711127" duration="4962000" />
       <workItem from="1705735283891" duration="1188000" />
       <workItem from="1705736476867" duration="1181000" />
-      <workItem from="1705893393359" duration="6763000" />
+      <workItem from="1705893393359" duration="9199000" />
     </task>
     <servers />
   </component>

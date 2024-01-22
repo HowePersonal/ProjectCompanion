@@ -82,14 +82,9 @@ public class SocialController {
         return conversationRepository.getConversationID(userIdOne, userIdTwo);
     }
 
-    @PostMapping("/addmessage")
-    ResponseEntity<Object> addMessage(@RequestBody Messages messages) {
-        try {
-            messageRepository.save(messages);
-            return new ResponseEntity<>(Map.of("message", "Successfully saved message"), HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(Map.of("message", "Failed to save message"), HttpStatus.BAD_REQUEST);
-        }
+
+    @GetMapping("/getconversationmessages")
+    List<Messages> getConversationMessages(@RequestParam Integer conversationId) {
+        return messageRepository.getMessagesByConversationId(conversationId);
     }
 }
