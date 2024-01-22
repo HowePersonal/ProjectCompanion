@@ -9,12 +9,12 @@ import java.io.Serializable;
 @Entity
 @Table(name="users")
 public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     @Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NonNull
     @Column(name = "username")
@@ -37,7 +37,7 @@ public class User implements Serializable {
     }
 
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,7 +65,7 @@ public class User implements Serializable {
         return password;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 }

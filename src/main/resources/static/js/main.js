@@ -19,7 +19,7 @@ function connect(event) {
 
     if(username) {
 
-        var socket = new SockJS('/wschat', null, {
+        var socket = new SockJS('/chat-connect', null, {
             withCredentials: true
         });
         stompClient = Stomp.over(socket);
@@ -49,7 +49,7 @@ function sendMessage(event) {
             senderUsername: username,
             content: messageInput.value
         };
-        stompClient.send("/app/public", {}, JSON.stringify(chatMessage));
+        stompClient.send("/chat-api/public", {}, JSON.stringify(chatMessage));
         messageInput.value = '';
     }
     event.preventDefault();

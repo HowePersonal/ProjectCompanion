@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("SELECT u FROM User u WHERE u.email = :email")
     User findByEmail(@Param String email);
@@ -36,8 +36,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO user_chat (user_id, input, response) VALUES(:userid, :input, :response)", nativeQuery = true)
-    void saveChatLog(Long userid, String input, String response);
+    void saveChatLog(Integer userid, String input, String response);
 
     @Query(value = "SELECT u.input, u.response FROM user_chat u WHERE user_id = :userid", nativeQuery = true)
-    List<Map<String, Object>> getChatLog(Long userid);
+    List<Map<String, Object>> getChatLog(Integer userid);
 }

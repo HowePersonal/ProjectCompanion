@@ -12,7 +12,7 @@ public class UserItem {
 
     @NonNull
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
     @NonNull
     @Column(name = "product_id")
@@ -21,7 +21,7 @@ public class UserItem {
     public UserItem() {
     }
 
-    public UserItem(Long userId, String productId) {
+    public UserItem(Integer userId, String productId) {
         this.userId = userId;
         this.productId = productId;
     }
@@ -34,11 +34,11 @@ public class UserItem {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

@@ -15,9 +15,6 @@ public class Messages {
     @Column(name = "sender_id")
     private int senderId;
 
-    @Column(name = "receiver_id")
-    private int receiverId;
-
     @Column(name = "message_content")
     private String content;
 
@@ -33,14 +30,6 @@ public class Messages {
 
     public void setSenderId(int senderId) {
         this.senderId = senderId;
-    }
-
-    public int getReceiverId() {
-        return receiverId;
-    }
-
-    public void setReceiverId(int receiverId) {
-        this.receiverId = receiverId;
     }
 
     public String getContent() {

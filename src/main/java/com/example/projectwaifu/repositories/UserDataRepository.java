@@ -10,31 +10,31 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDataRepository extends JpaRepository<UserData, Long> {
     @Query("SELECT u FROM UserData u WHERE u.userId = :userid")
-    UserData getUserData(Long userid);
+    UserData getUserData(Integer userid);
 
     @Query(value="SELECT count(*) FROM user_chat u where u.user_id = :userid", nativeQuery = true)
-    int getUserTotalMessages(Long userid);
+    int getUserTotalMessages(Integer userid);
 
     @Query(value = "SELECT coins FROM user_coins WHERE user_id = :userid", nativeQuery = true)
-    Integer getCoins(Long userid);
+    Integer getCoins(Integer userid);
 
     @Modifying
     @Transactional
     @Query("UPDATE UserData u SET u.description = :description WHERE u.userId = :userId")
-    void updateDescriptionByUserId(Long userId, String description);
+    void updateDescriptionByUserId(Integer userId, String description);
 
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO user_coins (user_id, coins) VALUES(:userid, :coins)", nativeQuery = true)
-    void initializeCoins(Long userid, int coins);
+    void initializeCoins(Integer userid, int coins);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE user_coins SET coins = coins + 1 WHERE user_id = :userid", nativeQuery = true)
-    void incrementCoins(Long userid);
+    void incrementCoins(Integer userid);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE user_coins SET coins = coins + :newCoins WHERE user_id = :userid", nativeQuery = true)
-    void addCoins(Long userid, int newCoins);
+    void addCoins(Integer userid, int newCoins);
 }

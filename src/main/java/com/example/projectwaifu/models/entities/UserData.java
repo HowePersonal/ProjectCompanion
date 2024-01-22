@@ -14,7 +14,7 @@ public class UserData {
 
     @NonNull
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
     @NonNull
     @Column(name = "profile_pic")
@@ -35,7 +35,7 @@ public class UserData {
 
     }
 
-    public UserData(Long user_id, int profile_pic, String description, String tag) {
+    public UserData(Integer user_id, int profile_pic, String description, String tag) {
         this.userId = user_id;
         this.profilePic = profile_pic;
         this.description = description;
@@ -50,11 +50,11 @@ public class UserData {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long user_id) {
+    public void setUserId(Integer user_id) {
         this.userId = user_id;
     }
 
