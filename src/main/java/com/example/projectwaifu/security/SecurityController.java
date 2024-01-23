@@ -1,11 +1,10 @@
 package com.example.projectwaifu.security;
 
-import com.example.projectwaifu.models.entities.User;
-import com.example.projectwaifu.models.entities.UserData;
-import com.example.projectwaifu.other.SecurityMethods;
-import com.example.projectwaifu.other.UserManager;
-import com.example.projectwaifu.repositories.UserDataRepository;
-import com.example.projectwaifu.repositories.UserRepository;
+import com.example.projectwaifu.user.User;
+import com.example.projectwaifu.user.UserData;
+import com.example.projectwaifu.util.UserManager;
+import com.example.projectwaifu.user.UserDataRepository;
+import com.example.projectwaifu.user.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.projectwaifu.other.SecurityMethods.validatePassword;
+import static com.example.projectwaifu.security.SecurityMethods.validatePassword;
 
 @RestController
 @RequestMapping("/security")
