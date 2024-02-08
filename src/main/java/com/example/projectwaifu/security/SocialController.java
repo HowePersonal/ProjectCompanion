@@ -7,6 +7,7 @@ import com.example.projectwaifu.message.ConversationRepository;
 import com.example.projectwaifu.message.MessageRepository;
 import com.example.projectwaifu.social.SocialRepository;
 import com.example.projectwaifu.user.UserRepository;
+import com.example.projectwaifu.util.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,50 +41,55 @@ public class SocialController {
         return socialRepository.getFriends(currUser.getUsername());
     }
 
-    @GetMapping("/isfriends")
-    ResponseEntity<Object> isFriends(@RequestParam String friendUsername, @AuthenticationPrincipal CustomUserDetails currUser) {
+    @GetMapping("/friends/{friendUsername}/check")
+    ResponseEntity<Object> checkFriends(@PathVariable String friendUsername, @AuthenticationPrincipal CustomUserDetails currUser) {
         if (userRepository.findByUsername(friendUsername) == null) { return new ResponseEntity<>(Map.of("message", "Invalid friend username"), HttpStatus.BAD_REQUEST);}
         return new ResponseEntity<>(Map.of("message", socialRepository.existsById(new FriendsKey(currUser.getUsername(), friendUsername))), HttpStatus.OK);
     }
 
-    @PostMapping("/addfriend")
-    ResponseEntity<Object> addFriend(@RequestBody Map<String, String> friendInfo, @AuthenticationPrincipal CustomUserDetails currUser) {
-        String friendUsername = friendInfo.get("username");
+    @PostMapping("/friends/{friendUsername}")
+    ResponseEntity<Object> addFriend(@PathVariable String friendUsername, @AuthenticationPrincipal CustomUserDetails currUser) {
         if (friendUsername == null || userRepository.findByUsername(friendUsername) == null) { return new ResponseEntity<>(Map.of("message", "Invalid friend username"), HttpStatus.BAD_REQUEST);}
         socialRepository.save(new Friends(currUser.getUsername(), friendUsername));
         return new ResponseEntity<>(Map.of("message", "Saved friends successfully"), HttpStatus.OK);
     }
 
-    @PostMapping("/createconversation")
+    @PostMapping("/conversations")
     ResponseEntity<Object> createConversation(@RequestBody Map<String, Integer> body, @AuthenticationPrincipal CustomUserDetails currUser) {
+        ApiResponse apiResponse = new ApiResponse();
         try {
             Integer friendId = body.get("friend_id");
             if (friendId == null || !userRepository.existsById(friendId)) {
-                return new ResponseEntity<>(Map.of("message", "Invalid friend id"), HttpStatus.BAD_REQUEST);
+                apiResponse.setResponse(Map.of("message", "Invalid friend id"), HttpStatus.BAD_REQUEST);
             }
-            Integer conversationId = conversationRepository.createConversation(new Date());
-            conversationRepository.createConversationParticipant(currUser.getId(), conversationId);
-            conversationRepository.createConversationParticipant(friendId, conversationId);
-            return new ResponseEntity<>(Map.of("message", "Created conversation successfully"), HttpStatus.OK);
+            else {
+                Integer conversationId = conversationRepository.createConversation(new Date());
+                conversationRepository.createConversationParticipant(currUser.getId(), conversationId);
+                conversationRepository.createConversationParticipant(friendId, conversationId);
+                apiResponse.setResponse(Map.of("message", "Created conversation successfully"), HttpStatus.OK);
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>(Map.of("message", "Failed to create conversation"), HttpStatus.BAD_REQUEST);
+            apiResponse.setResponse(Map.of("message", "Failed to create conversation"), HttpStatus.BAD_REQUEST);
+        } finally {
+            return apiResponse.toResponseEntity();
         }
+
     }
 
-    @GetMapping("/getconversationparticipants")
-    List<Integer> getConversationParticipants(@RequestParam Integer conversationId) {
+    @GetMapping("/conversations/{conversationId}/participants")
+    List<Integer> getConversationParticipants(@PathVariable Integer conversationId) {
         return conversationRepository.getConversationParticipants(conversationId);
     }
 
-    @GetMapping("/getprivateconversationid")
+    @GetMapping("/conversations/private")
     Integer getPrivateConversationId(@RequestParam Integer userIdOne, @RequestParam Integer userIdTwo) {
         return conversationRepository.getConversationID(userIdOne, userIdTwo);
     }
 
 
-    @GetMapping("/getconversationmessages")
-    List<Messages> getConversationMessages(@RequestParam Integer conversationId) {
+    @GetMapping("/conversations/{conversationId}/messages")
+    List<Messages> getConversationMessages(@PathVariable Integer conversationId) {
         return messageRepository.getMessagesByConversationId(conversationId);
     }
 }
