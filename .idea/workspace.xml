@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc83397b-7faa-4f82-babe-4ed5c0ce8c2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/admin/AdminUserDataController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/util/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/projectwaifu/admin/AdminUserDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/SocialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/security/SocialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/user/UserChangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectwaifu/user/UserChangeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +52,7 @@
     &quot;git-widget-placeholder&quot;: &quot;development&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/how/Projects/ProjectWAPI&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/cha-movies&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -129,7 +125,9 @@
       <workItem from="1705919142162" duration="66000" />
       <workItem from="1705995978178" duration="739000" />
       <workItem from="1707275207609" duration="4442000" />
-      <workItem from="1707382861434" duration="443000" />
+      <workItem from="1707382861434" duration="2042000" />
+      <workItem from="1708413244291" duration="539000" />
+      <workItem from="1708491896668" duration="494000" />
     </task>
     <servers />
   </component>

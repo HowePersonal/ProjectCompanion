@@ -44,7 +44,7 @@ public class UserChangeController {
 
 
 
-    @PostMapping("/username")
+    @PutMapping("/username")
     public ResponseEntity<Object> changeUsername(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -64,7 +64,7 @@ public class UserChangeController {
         return new ResponseEntity<>(Map.of("message", "Username changed"), HttpStatus.OK);
     }
 
-    @PostMapping("/password")
+    @PutMapping("/password")
     public ResponseEntity<Object> changePassword(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String oldPassword = userInfo.get("oldpassword");
@@ -87,7 +87,7 @@ public class UserChangeController {
         return new ResponseEntity<>(Map.of("message", "Password changed"), HttpStatus.OK);
     }
 
-    @PostMapping("/description")
+    @PutMapping("/description")
     public ResponseEntity<Object> changeDescription(@RequestBody Map<String, String> data) {
         CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
