@@ -51,7 +51,7 @@ public class SecurityController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         try {
             boolean encoded = !(loginRequest.getPassword().equals("oauth2/openid")) ? false : true;
             if (!userManager.updateContext(loginRequest.getEmail(), loginRequest.getPassword(), httpServletRequest, httpServletResponse, encoded)) {
@@ -62,11 +62,11 @@ public class SecurityController {
             Map<String, String> loginResponse = new HashMap<>();
             loginResponse.put("message", "Login Success");
             loginResponse.put("username", username);
-            return new ResponseEntity<Object>(loginResponse, HttpStatus.OK);
+            return ResponseEntity.ok(loginResponse);
         }
         catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<Object>(Map.of("message", "Login Failed"), HttpStatus.FORBIDDEN);
+            return ResponseEntity.badRequest().body(Map.of("message", "Login Failed"));
         }
     }
 
@@ -84,7 +84,7 @@ public class SecurityController {
     }
 
     @GetMapping("/oauth2/callback")
-    public ResponseEntity<Object> oauth2Callback(
+    public ResponseEntity<?> oauth2Callback(
             @RequestParam(name = "state") String state,
             @RequestParam(name = "code") String code,
             @RequestParam(name = "scope") String scope,
@@ -104,34 +104,35 @@ public class SecurityController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<Object> logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+    public ResponseEntity<?> logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         try {
             userManager.clearContext(httpServletRequest, httpServletResponse);
-            return new ResponseEntity<Object>(Map.of("message", "Logout Success"), HttpStatus.OK);
+            return ResponseEntity.ok(Map.of("message", "Logout Success"));
         }
         catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<Object>(Map.of("message", "Logout Failed"), HttpStatus.FORBIDDEN);
+            return ResponseEntity.badRequest().body(Map.of("message", "Logout Failed"));
         }
     }
 
     @GetMapping("/authorities")
-    public String getAuthorities() {
-        return SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
+    public ResponseEntity<?> getAuthorities() {
+        String authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
+        return ResponseEntity.ok(authorities);
 
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Object> register(@RequestBody User user) {
+    public ResponseEntity<?> register(@RequestBody User user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            return new ResponseEntity<>(Map.of("message", "Email already exists"), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message", "Email already exists"));
         }
         else if (userRepository.findByUsername(user.getUsername()) != null) {
-            return new ResponseEntity<>(Map.of("message", "Username already exists"), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message", "Username already exists"));
         }
 
         if (!validatePassword(user.getPassword())) {
-            return new ResponseEntity<>(Map.of("message", "Password not matching requirement"), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(Map.of("message", "Password not matching requirement"));
         }
 
         String encodedPassword = user.getPassword();
@@ -142,7 +143,7 @@ public class SecurityController {
         userRepository.save(user);
         userDataRepository.initializeCoins(user.getId(), 0);
         userDataRepository.save(new UserData(user.getId(), 0, "None", "Default"));
-        return new ResponseEntity<>(Map.of("message", "Registration Success"), HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Registration Success"));
     }
 
 }

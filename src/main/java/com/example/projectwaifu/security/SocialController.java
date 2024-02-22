@@ -43,15 +43,15 @@ public class SocialController {
 
     @GetMapping("/friends/{friendUsername}/check")
     ResponseEntity<Object> checkFriends(@PathVariable String friendUsername, @AuthenticationPrincipal CustomUserDetails currUser) {
-        if (userRepository.findByUsername(friendUsername) == null) { return new ResponseEntity<>(Map.of("message", "Invalid friend username"), HttpStatus.BAD_REQUEST);}
+        if (userRepository.findByUsername(friendUsername) == null) { return new ResponseEntity<>(Map.of("message", "Invalid friend username"), HttpStatus.NOT_FOUND);}
         return new ResponseEntity<>(Map.of("message", socialRepository.existsById(new FriendsKey(currUser.getUsername(), friendUsername))), HttpStatus.OK);
     }
 
     @PostMapping("/friends/{friendUsername}")
     ResponseEntity<Object> addFriend(@PathVariable String friendUsername, @AuthenticationPrincipal CustomUserDetails currUser) {
-        if (friendUsername == null || userRepository.findByUsername(friendUsername) == null) { return new ResponseEntity<>(Map.of("message", "Invalid friend username"), HttpStatus.BAD_REQUEST);}
+        if (friendUsername == null || userRepository.findByUsername(friendUsername) == null) { return new ResponseEntity<>(Map.of("message", "Invalid friend username"), HttpStatus.NOT_FOUND);}
         socialRepository.save(new Friends(currUser.getUsername(), friendUsername));
-        return new ResponseEntity<>(Map.of("message", "Saved friends successfully"), HttpStatus.OK);
+        return new ResponseEntity<>(Map.of("message", "Saved friends successfully"), HttpStatus.CREATED);
     }
 
     @PostMapping("/conversations")
@@ -60,13 +60,13 @@ public class SocialController {
         try {
             Integer friendId = body.get("friend_id");
             if (friendId == null || !userRepository.existsById(friendId)) {
-                apiResponse.setResponse(Map.of("message", "Invalid friend id"), HttpStatus.BAD_REQUEST);
+                apiResponse.setResponse(Map.of("message", "Invalid friend id"), HttpStatus.NOT_FOUND);
             }
             else {
                 Integer conversationId = conversationRepository.createConversation(new Date());
                 conversationRepository.createConversationParticipant(currUser.getId(), conversationId);
                 conversationRepository.createConversationParticipant(friendId, conversationId);
-                apiResponse.setResponse(Map.of("message", "Created conversation successfully"), HttpStatus.OK);
+                apiResponse.setResponse(Map.of("message", "Created conversation successfully"), HttpStatus.CREATED);
             }
         } catch (Exception e) {
             e.printStackTrace();

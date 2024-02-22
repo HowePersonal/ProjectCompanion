@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.SecurityContextRepository;
@@ -45,37 +46,38 @@ public class UserChangeController {
 
 
     @PutMapping("/username")
-    public ResponseEntity<Object> changeUsername(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+    public ResponseEntity<?> changeUsername(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @AuthenticationPrincipal CustomUserDetails currUser) {
         String newUsername = userInfo.get("username");
 
-        if (newUsername == null) {
-            return new ResponseEntity<>(Map.of("message", "No username provided"), HttpStatus.BAD_REQUEST);
+        if (newUsername == null || newUsername.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of("message", "No username provided"));
         }
 
         if (userRepository.findByUsername(newUsername) != null) {
-            return new ResponseEntity<>(Map.of("message", "Username already exists"), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message", "Username already exists");
         }
+
         currUser.setUsername(newUsername);
         userRepository.changeUsername(newUsername, currUser.getEmail());
         userManager.updateContext(currUser.getEmail(), currUser.getPassword(), httpServletRequest, httpServletResponse, true);
 
-        return new ResponseEntity<>(Map.of("message", "Username changed"), HttpStatus.OK);
+        return ResponseEntity.ok(Map.of("message", "Username changed"));
     }
 
     @PutMapping("/password")
-    public ResponseEntity<Object> changePassword(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public ResponseEntity<?> changePassword(@RequestBody Map<String, String> userInfo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @AuthenticationPrincipal CustomUserDetails currUser) {
         String oldPassword = userInfo.get("oldpassword");
         String newPassword = userInfo.get("newpassword");
 
         if (oldPassword == null || newPassword == null) {
-            return new ResponseEntity<>(Map.of("message", "Improper request body"), HttpStatus.BAD_REQUEST);
-        } else if (!passwordEncoder.matches(oldPassword, currUser.getPassword())) {
-            return new ResponseEntity<>(Map.of("message", "Incorrect old password"), HttpStatus.BAD_REQUEST);
-        } else if (!validatePassword(newPassword)) {
-            return new ResponseEntity<>(Map.of("message", "Invalid new password"), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(Map.of("message", "Improper request body"));
+        }
+
+        if (!passwordEncoder.matches(oldPassword, currUser.getPassword())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("message", "Incorrect old password"));
+        }
+        else if (!validatePassword(newPassword)) {
+            return ResponseEntity.badRequest().body(Map.of("message", "Invalid new password"));
         }
 
         String encodedNewPassword = passwordEncoder.encode(newPassword);
@@ -84,22 +86,19 @@ public class UserChangeController {
         userRepository.changePassword(encodedNewPassword, currUser.getEmail());
         userManager.updateContext(currUser.getEmail(), newPassword, httpServletRequest, httpServletResponse, false);
 
-        return new ResponseEntity<>(Map.of("message", "Password changed"), HttpStatus.OK);
+        return ResponseEntity.ok(Map.of("message", "Password changed"));
     }
 
     @PutMapping("/description")
-    public ResponseEntity<Object> changeDescription(@RequestBody Map<String, String> data) {
-        CustomUserDetails currUser = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+    public ResponseEntity<?> changeDescription(@RequestBody Map<String, String> data, @AuthenticationPrincipal CustomUserDetails currUser) {
         String newDescription = data.get("description");
 
         if (newDescription == null) {
-            return new ResponseEntity<>(Map.of("message", "Improper request body"), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(Map.of("message", "Improper request body"));
         }
 
         userDataRepository.updateDescriptionByUserId(currUser.getId(), newDescription);
-
-        return new ResponseEntity<>(Map.of("message", "Description Changed"), HttpStatus.OK);
+        return ResponseEntity.ok(Map.of("message", "Description changed successfully"));
     }
 
 
